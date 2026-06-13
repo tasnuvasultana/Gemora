@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gemore MST - Handmade Jewelry Marketplace</title>
+    <title>Gemore MST - Handmade Product Marketplace</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -195,18 +195,18 @@
                         <div
                             class="inline-flex items-center space-x-2 bg-amber-500/15 border border-amber-500/30 text-amber-300 text-[10px] sm:text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full">
                             <span>✨</span>
-                            <span>Empowering Independent Jewelry Artisans</span>
+                            <span>Empowering Independent Handmade Entrepreneurs</span>
                         </div>
 
                         <h1 class="font-serif text-4xl sm:text-6xl tracking-wide font-normal leading-tight">
                             Where Heritage Meets <br>
-                            <span class="text-amber-400 font-medium">Modern Luxury</span>
+                            <span class="text-amber-400 font-medium">Modern Masterpieces</span>
                         </h1>
 
                         <p
                             class="text-stone-300 text-sm sm:text-base font-light max-w-xl leading-relaxed mx-auto lg:mx-0">
                             Welcome to <strong class="font-medium text-white">Gemore</strong>. We are a dedicated
-                            community micro-commerce engine engineered to uplift small handmade jewelry entrepreneurs.
+                            community micro-commerce engine engineered to uplift small handmade product entrepreneurs.
                             Discover breathtaking, locally sourced craftsmanship sculpted directly around your
                             geographic footprint.
                         </p>
@@ -228,9 +228,9 @@
                     <div class="lg:col-span-5 hidden lg:block">
                         <div class="relative p-3 border border-stone-800 bg-stone-900/50 rounded-2xl backdrop-blur-xs">
                             <div class="overflow-hidden rounded-xl aspect-[5/6] bg-stone-800 shadow-2xl relative group">
-                                <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600"
-                                    alt="Handcrafted Gold Jewelry"
-                                    class="w-full h-full object-cover transition duration-700 group-hover:scale-105" />
+                                <img src="category/handmade-jewelry/churi.jpg" alt="Handcrafted Luxury Pieces"
+                                    class="w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                                    onerror="this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600'" />
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent opacity-60">
                                 </div>
@@ -238,7 +238,7 @@
                                     class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md p-3.5 rounded-xl text-stone-900 shadow-lg border border-white/20">
                                     <span class="text-[9px] font-bold uppercase tracking-widest text-amber-800">Featured
                                         Masterwork</span>
-                                    <h4 class="font-serif font-bold text-sm text-stone-900 mt-0.5">Filigree Elegance
+                                    <h4 class="font-serif font-bold text-sm text-stone-900 mt-0.5">Heritage Elegance
                                     </h4>
                                     <p class="text-[11px] text-stone-500 font-light mt-0.5">100% sustainably produced by
                                         hand.</p>
@@ -323,15 +323,9 @@
                                 class="w-full bg-stone-50 border border-stone-200 rounded-xl pl-8 pr-3 py-1.5 text-xs outline-none transition focus:ring-1 focus:ring-amber-500 focus:bg-white" />
                         </div>
 
-                        <div class="flex items-center space-x-1">
-                            <button onclick="setCategory('All')"
-                                class="cat-btn px-3 py-1.5 text-[11px] font-semibold rounded-xl transition duration-200 bg-amber-800 text-white shadow-xs">All</button>
-                            <button onclick="setCategory('Rings')"
-                                class="cat-btn px-3 py-1.5 text-[11px] font-semibold rounded-xl transition duration-200 bg-stone-50 text-stone-600 hover:bg-stone-100">Rings</button>
-                            <button onclick="setCategory('Necklaces')"
-                                class="cat-btn px-3 py-1.5 text-[11px] font-semibold rounded-xl transition duration-200 bg-stone-50 text-stone-600 hover:bg-stone-100">Necklaces</button>
-                            <button onclick="setCategory('Bracelets')"
-                                class="cat-btn px-3 py-1.5 text-[11px] font-semibold rounded-xl transition duration-200 bg-stone-50 text-stone-600 hover:bg-stone-100">Bracelets</button>
+                        <!-- --- DYNAMIC CATEGORY DOCK SYSTEM --- -->
+                        <div id="dynamicCategoryDock"
+                            class="flex items-center space-x-1 overflow-x-auto max-w-full sm:max-w-xs md:max-w-none custom-scrollbar pb-1 sm:pb-0">
                         </div>
 
                         <div
@@ -408,8 +402,7 @@
                             <label
                                 class="block text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-1">Product
                                 Title *</label>
-                            <input type="text" id="newProdTitle" required
-                                placeholder="e.g. Handmade Sapphire Crown Ring"
+                            <input type="text" id="newProdTitle" required placeholder="e.g. ring"
                                 class="w-full border border-stone-200 bg-stone-50/50 rounded-xl px-3 py-2.5 text-xs outline-none focus:ring-1 focus:ring-amber-500 focus:bg-white transition" />
                         </div>
                         <div class="grid grid-cols-2 gap-3">
@@ -422,28 +415,25 @@
                             </div>
                             <div>
                                 <label
-                                    class="block text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-1">Category</label>
+                                    class="block text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-1">Folder
+                                    Name / Category</label>
                                 <select id="newProdCat"
                                     class="w-full border border-stone-200 bg-stone-50/50 rounded-xl px-3 py-2.5 text-xs outline-none focus:ring-1 focus:ring-amber-500 focus:bg-white transition cursor-pointer">
-                                    <option value="Rings">Rings</option>
-                                    <option value="Necklaces">Necklaces</option>
-                                    <option value="Bracelets">Bracelets</option>
                                 </select>
                             </div>
                         </div>
                         <div>
                             <label
                                 class="block text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-1">Product
-                                Image URL</label>
-                            <input type="text" id="newProdImg" placeholder="https://images.unsplash.com/..."
+                                Image Filename</label>
+                            <input type="text" id="newProdImg" placeholder="e.g. ring.jpg"
                                 class="w-full border border-stone-200 bg-stone-50/50 rounded-xl px-3 py-2.5 text-xs outline-none focus:ring-1 focus:ring-amber-500 focus:bg-white transition" />
                         </div>
                         <div>
                             <label
                                 class="block text-[10px] font-bold uppercase tracking-widest text-stone-400 mb-1">Product
                                 Story & Specifications</label>
-                            <textarea id="newProdDesc" rows="3"
-                                placeholder="Share the craftsmanship details, inspiration, and materials used..."
+                            <textarea id="newProdDesc" rows="3" placeholder="Share the craftsmanship details..."
                                 class="w-full border border-stone-200 bg-stone-50/50 rounded-xl px-3 py-2.5 text-xs outline-none focus:ring-1 focus:ring-amber-500 focus:bg-white transition"></textarea>
                         </div>
                         <button type="submit"
@@ -476,7 +466,7 @@
             </div>
         </section>
 
-        <!-- NEW VIEW 7: GLOBAL CENTRAL OWNER MASTER ADMIN SYSTEM CONTROL VIEW -->
+        <!-- VIEW 7: GLOBAL CENTRAL OWNER MASTER ADMIN SYSTEM CONTROL VIEW -->
         <section id="view-admin-console" class="app-view hidden space-y-8">
             <div
                 class="bg-gradient-to-r from-purple-950 to-indigo-950 text-purple-50 p-6 sm:p-8 rounded-2xl shadow-xl border-l-8 border-purple-500">
@@ -485,7 +475,6 @@
                     sales reports and enterprise fulfillment pipelines.</p>
             </div>
 
-            <!-- Master analytical records data block array overview tracking matrix -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
                 <div class="bg-white p-6 rounded-2xl border border-purple-100 shadow-xs">
                     <span class="text-[10px] font-bold text-purple-400 uppercase tracking-widest block">Platform Gross
@@ -504,7 +493,6 @@
                 </div>
             </div>
 
-            <!-- Global Sales Report Logs Statement List Registry Table -->
             <div class="bg-white p-6 rounded-2xl border border-stone-100 shadow-xs">
                 <h3 class="font-serif font-bold text-lg text-stone-900 mb-4 tracking-wide border-b pb-2">Comprehensive
                     Monthly Selling Ledger</h3>
@@ -575,9 +563,8 @@
                     </div>
                 </div>
                 <button type="submit"
-                    class="w-full bg-emerald-800 hover:bg-emerald-800 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-md active:scale-[0.99] mt-2">
-                    Place Secure Order
-                </button>
+                    class="w-full bg-emerald-800 hover:bg-emerald-800 text-white font-bold py-3.5 rounded-xl text-xs uppercase tracking-wider transition shadow-md active:scale-[0.99] mt-2">Place
+                    Secure Order</button>
             </form>
         </section>
 
@@ -585,7 +572,7 @@
 
     <!-- --- FOOTER --- -->
     <footer class="bg-white border-t border-stone-100 py-6 text-center text-xs text-stone-400 tracking-wider uppercase">
-        <p>© 2026 Gemore. An Ecosystem Built to Support Handcrafted Jewelry Entrepreneurs.</p>
+        <p>© 2026 Gemore. An Ecosystem Built to Support Handcrafted Product Entrepreneurs.</p>
     </footer>
 
     <!-- --- JAVASCRIPT ARCHITECTURE ENGINE --- -->
@@ -593,35 +580,129 @@
         // --- DATABASE PROFILE DEFINITIONS ---
         const userProfiles = {
             'admin@karigar.com': { id: 'admin', name: "Platform Owner Admin", role: "admin", location: "Dhaka" },
-            'anika@karigar.com': { id: 's1', name: "Anika Rahman", role: "seller", location: "Dhaka", avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150", story: "I am a home entrepreneur shaping elegant silver filigree and baked clay mixtures from my Dhaka studio.", phone: "+8801711111111", email: "anika@karigar.com" },
-            'zayan@karigar.com': { id: 's2', name: "Zayan Ahmed", role: "seller", location: "Sylhet", avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150", story: "Sculpting raw stone configurations and beaded accents that highlight native designs.", phone: "+8801822222222", email: "zayan@karigar.com" },
+            'anika@karigar.com': { id: 's1', name: "Anika Rahman", role: "seller", location: "Dhaka", avatar: "category/handmade-jewelry/ring.jpg", story: "I am a home entrepreneur crafting dynamic pieces from my creative studio.", phone: "+8801711111111", email: "anika@karigar.com" },
+            'zayan@karigar.com': { id: 's2', name: "Zayan Ahmed", role: "seller", location: "Sylhet", avatar: "category/home-accessories/handmade-mora.jpg", story: "Sculpting traditional seating configurations, natural mats, and unpolished clay crafts.", phone: "+8801822222222", email: "zayan@karigar.com" },
             'buyer@karigar.com': { id: 'b1', name: "Tanvir Amin", role: "buyer", location: "Chittagong", phone: "+8801933333333", email: "buyer@karigar.com" }
         };
 
+        // --- MAPS DIRECTLY TO YOUR COMPUTER'S FOLDER DIRECTORY ---
         const initialProducts = [
-            // --- RINGS CATEGORY ---
-            { id: 'p1', sellerId: 's1', title: "Handcrafted Silver Filigree Ring", price: 1250, category: "Rings", location: "Dhaka", image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500", description: "Intricate silver wirework made by traditional smiths. Pure 925 sterling silver.", reviews: [] },
-            { id: 'p4', sellerId: 's1', title: "Boho Moonstone Statement Ring", price: 1850, category: "Rings", location: "Dhaka", image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500", description: "Hand-carved sterling silver wrapping an ethereal natural moonstone glowing with blue undertones.", reviews: [] },
-            { id: 'p5', sellerId: 's2', title: "Raw Amethyst Geode Ring", price: 1600, category: "Rings", location: "Sylhet", image: "https://images.unsplash.com/photo-1598560917505-59a3ad559071?w=500", description: "An unpolished, organic shard of deep purple amethyst anchored on a robust hammered copper band.", reviews: [] },
+            // --- handmade-jewelry FOLDER ---
+            { id: 'p1', sellerId: 's1', title: "ring", price: 1250, category: "handmade-jewelry", location: "Dhaka", image: "category/handmade-jewelry/ring.jpg", description: "Beautiful handcrafted structural work.", reviews: [] },
+            { id: 'p4', sellerId: 's1', title: "churi", price: 650, category: "handmade-jewelry", location: "Dhaka", image: "category/handmade-jewelry/churi.jpg", description: "Vibrant custom stacked artwork.", reviews: [] },
+            { id: 'p5', sellerId: 's2', title: "necklace", price: 1600, category: "handmade-jewelry", location: "Sylhet", image: "category/handmade-jewelry/necklace.jpg", description: "A beautifully strung design.", reviews: [] },
 
-            // --- NECKLACES CATEGORY ---
-            { id: 'p2', sellerId: 's1', title: "Terracotta Floral Pendant", price: 450, category: "Necklaces", location: "Dhaka", image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500", description: "Eco-friendly baked clay pendant painted with organic acrylics.", reviews: [] },
-            { id: 'p6', sellerId: 's1', title: "Hammered Brass Sun Choker", price: 950, category: "Necklaces", location: "Dhaka", image: "https://images.unsplash.com/photo-1611085583191-a3b1a1a27cd2?w=500", description: "A minimalist bohemian choker featuring a hand-pressed raw brass coin representing solar energy.", reviews: [] },
-            { id: 'p7', sellerId: 's2', title: "Vintage Coin Silver Hasli", price: 3400, category: "Necklaces", location: "Sylhet", image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500", description: "A rigid, heritage-inspired collar necklace crafted from repurposed antique silver currency elements.", reviews: [] },
+            // --- nakshi-kantha FOLDER ---
+            { id: 'p2', sellerId: 's1', title: "embroidered-quilt", price: 4500, category: "nakshi-kantha", location: "Dhaka", image: "category/nakshi-kantha/embroidered-quilt.jpg", description: "Meticulously detailed hand-stitched running patterns.", reviews: [] },
 
-            // --- BRACELETS CATEGORY ---
-            { id: 'p3', sellerId: 's2', title: "Monsoon Green Beaded Bracelet", price: 350, category: "Bracelets", location: "Sylhet", image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500", description: "Inspired by the lush green tea gardens during rainy season.", reviews: [] },
-            { id: 'p8', sellerId: 's1', title: "Braided Macramé Jasper Cuff", price: 650, category: "Bracelets", location: "Dhaka", image: "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=500", description: "Woven meticulously with waxed micro-threads framing five sea-sediment jasper stones.", reviews: [] },
-            { id: 'p9', sellerId: 's2', title: "Raw Quartz Layering Bangle", price: 1100, category: "Bracelets", location: "Sylhet", image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500", description: "A delicate copper wire-wrapped cuff showcasing a raw, double-terminated clear quartz crystal capsule.", reviews: [] }
+            // --- home-accessories FOLDER ---
+            { id: 'p3', sellerId: 's2', title: "handmade-mora", price: 1350, category: "home-accessories", location: "Sylhet", image: "category/home-accessories/handmade-mora.jpg", description: "A highly robust structural accent.", reviews: [] },
+            { id: 'p8', sellerId: 's1', title: "handmade-pati", price: 1850, category: "home-accessories", location: "Dhaka", image: "category/home-accessories/handmade-pati.jpg", description: "Traditional smooth-surfaced weaving.", reviews: [] },
+
+            // --- terracotta-pottery FOLDER ---
+            { id: 'p7', sellerId: 's2', title: "clay-vase", price: 1100, category: "terracotta-pottery", location: "Sylhet", image: "category/terracotta-pottery/clay-vase.jpg", description: "Wheel-thrown organic element.", reviews: [] },
+
+            {
+                id: 'p10',
+                sellerId: 's2',
+                title: "clay-hariken",
+                price: 1200,
+                category: "terracotta-pottery",
+                location: "Sylhet",
+                image: "category/terracotta-pottery/clay-hariken.jpg",
+                description: "Traditional handmade clay hariken.",
+                reviews: []
+            },
+
+            {
+                id: 'p11',
+                sellerId: 's2',
+                title: "clay-water-jar",
+                price: 1400,
+                category: "terracotta-pottery",
+                location: "Sylhet",
+                image: "category/terracotta-pottery/clay-water-jar.jpg",
+                description: "Handcrafted terracotta water storage jar.",
+                reviews: []
+            },
+            {
+                id: 'p12',
+                sellerId: 's1',
+                title: "bracelet",
+                price: 850,
+                category: "handmade-jewelry",
+                location: "Dhaka",
+                image: "category/handmade-jewelry/bracelet.jpg",
+                description: "Handcrafted bracelet with elegant traditional design.",
+                reviews: []
+            },
+
+            {
+                id: 'p13',
+                sellerId: 's1',
+                title: "bohemian bracelet",
+                price: 950,
+                category: "handmade-jewelry",
+                location: "Dhaka",
+                image: "category/handmade-jewelry/bohemian bracelet.jpg",
+                description: "Stylish bohemian-inspired handmade bracelet.",
+                reviews: []
+            },
+            // --- handmade-bags FOLDER ---
+            {
+                id: 'p14',
+                sellerId: 's1',
+                title: "Handmade Bag",
+                price: 1200,
+                category: "handmade-bags",
+                location: "Dhaka",
+                image: "category/handmade-bags/bag.jpg",
+                description: "Handcrafted bag made by local artisans.",
+                reviews: []
+            },
+
+            // --- embroidery-crafts FOLDER ---
+            {
+                id: 'p15',
+                sellerId: 's1',
+                title: "Handmade Craft",
+                price: 900,
+                category: "embroidery-crafts",
+                location: "Dhaka",
+                image: "category/embroidery-crafts/craft.jpg",
+                description: "Traditional handmade embroidery craft.",
+                reviews: []
+            },
+            // --- jute-fiber-crafts FOLDER ---
+            { id: 'p9', sellerId: 's2', title: "jute-basket", price: 950, category: "jute-fiber-crafts", location: "Sylhet", image: "category/jute-fiber-crafts/jute-basket.jpg", description: "Heavy-duty storage organization container.", reviews: [] }
         ];
 
         const initialSalesRegistry = [
-            { id: 'TX-9901', productId: 'p1', productTitle: "Handcrafted Silver Filigree Ring", sellerId: 's1', qty: 2, totalValue: 2500, location: "Dhaka" },
-            { id: 'TX-9902', productId: 'p3', productTitle: "Monsoon Green Beaded Bracelet", sellerId: 's2', qty: 1, totalValue: 350, location: "Sylhet" }
+            { id: 'TX-9901', productId: 'p1', productTitle: "ring", sellerId: 's1', qty: 2, totalValue: 2500, location: "Dhaka" },
+            { id: 'TX-9902', productId: 'p3', productTitle: "handmade-mora", sellerId: 's2', qty: 1, totalValue: 1350, location: "Sylhet" }
         ];
 
-        // Core States Variables Linked to storage
-        let products = JSON.parse(localStorage.getItem('mx_products')) || initialProducts;
+        // --- AUTOMATED CACHE SELF-CLEANING GATEWAY ---
+        let rawStoredProducts = localStorage.getItem('mx_products');
+        let products = initialProducts;
+
+        if (rawStoredProducts) {
+            try {
+                let parsed = JSON.parse(rawStoredProducts);
+                let componentsAreOutdated = parsed.some(p => p.category === 'Rings' || p.category === 'Apparel' || p.category === 'Home Decor');
+                if (componentsAreOutdated) {
+                    localStorage.removeItem('mx_products');
+                    products = initialProducts;
+                } else {
+                    products = parsed;
+                }
+            } catch (e) {
+                products = initialProducts;
+            }
+        } else {
+            products = initialProducts;
+        }
+
         let cart = JSON.parse(localStorage.getItem('mx_cart')) || [];
         let salesRegistry = JSON.parse(localStorage.getItem('mx_sales')) || initialSalesRegistry;
         let currentUser = JSON.parse(localStorage.getItem('mx_user')) || null;
@@ -639,8 +720,8 @@
             updateCartBadge();
         }
 
-        // --- AUTH PORTAL INTERACTION LOGIC ---
         window.onload = function () {
+            buildDynamicCategoryUI();
             if (currentUser) {
                 applySessionUI();
             } else {
@@ -649,13 +730,54 @@
             }
         };
 
-        function openAuthPortal() {
-            document.getElementById('auth-portal').classList.remove('hidden');
+        // --- VISUAL TEXT TRANSLATION REFORMATTER ---
+        // Converts code strings like "handmade-jewelry" into neat "Handmade Jewelry" text
+        function formatCategoryDisplayName(slug) {
+            if (slug === 'All') return 'All';
+            return slug
+                .split('-')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
         }
 
-        function closeAuthPortal() {
-            document.getElementById('auth-portal').classList.add('hidden');
+        // --- AUTOMATED LINK MAPPING COMPILER ---
+        function buildDynamicCategoryUI() {
+            const uniqueCategories = new Set();
+            products.forEach(p => {
+                if (p.category) uniqueCategories.add(p.category);
+            });
+
+            const dock = document.getElementById('dynamicCategoryDock');
+            let dockHTML = `<button onclick="setCategoryDirect('All', this)" class="cat-btn px-3 py-1.5 text-[11px] font-semibold rounded-xl transition duration-200 ${activeCategory === 'All' ? 'bg-amber-800 text-white shadow-xs' : 'bg-stone-50 text-stone-600 hover:bg-stone-100'} whitespace-nowrap">All</button>`;
+
+            uniqueCategories.forEach(cat => {
+                let cleanLabel = formatCategoryDisplayName(cat);
+                dockHTML += `<button onclick="setCategoryDirect('${cat}', this)" class="cat-btn px-3 py-1.5 text-[11px] font-semibold rounded-xl transition duration-200 ${activeCategory === cat ? 'bg-amber-800 text-white shadow-xs' : 'bg-stone-50 text-stone-600 hover:bg-stone-100'} whitespace-nowrap">${cleanLabel}</button>`;
+            });
+            dock.innerHTML = dockHTML;
+
+            const dashboardSelect = document.getElementById('newProdCat');
+            if (dashboardSelect) {
+                let selectHTML = '';
+                uniqueCategories.forEach(cat => {
+                    let cleanLabel = formatCategoryDisplayName(cat);
+                    selectHTML += `<option value="${cat}">${cleanLabel}</option>`;
+                });
+                dashboardSelect.innerHTML = selectHTML;
+            }
         }
+
+        function setCategoryDirect(cat, buttonElement) {
+            activeCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.className = "cat-btn px-3 py-1.5 text-[11px] font-semibold rounded-xl transition duration-200 bg-stone-50 text-stone-600 hover:bg-stone-100 whitespace-nowrap";
+            });
+            buttonElement.className = "cat-btn px-3 py-1.5 text-[11px] font-semibold rounded-xl transition duration-200 bg-amber-800 text-white shadow-xs whitespace-nowrap";
+            renderMarketplace();
+        }
+
+        function openAuthPortal() { document.getElementById('auth-portal').classList.remove('hidden'); }
+        function closeAuthPortal() { document.getElementById('auth-portal').classList.add('hidden'); }
 
         function handleAuthSubmit(e) {
             e.preventDefault();
@@ -668,39 +790,22 @@
                 currentUser = userProfiles[email];
                 userLocation = currentUser.location;
                 document.getElementById('userLocationSelect').value = userLocation;
-
                 applySessionUI();
                 closeAuthPortal();
                 saveState();
                 switchView('home');
-            } else {
-                errorMsg.classList.remove('hidden');
-            }
+            } else { errorMsg.classList.remove('hidden'); }
         }
 
         function executeLogout() {
             currentUser = null;
             cart = [];
             saveState();
-            document.getElementById('authEmail').value = '';
-            document.getElementById('authPassword').value = '';
-
-            const badge = document.getElementById('active-user-badge');
-            badge.innerHTML = `👤 Guest Mode`;
-
-            document.getElementById('nav-dash-btn').classList.add('hidden');
-            document.getElementById('nav-admin-btn').classList.add('hidden');
-            document.getElementById('nav-logout-btn').classList.add('hidden');
-            document.getElementById('nav-login-btn').classList.remove('hidden');
-            document.getElementById('nav-location-selector').classList.remove('hidden');
-            document.getElementById('nav-cart-btn').classList.remove('hidden');
-
-            switchView('home');
+            location.reload();
         }
 
         function applySessionUI() {
             if (!currentUser) return;
-
             const badge = document.getElementById('active-user-badge');
             badge.innerHTML = `👤 Profile: <strong class="font-semibold text-stone-900">${currentUser.name}</strong> <span class="text-[9px] bg-stone-200/70 text-stone-600 px-1.5 py-0.5 rounded-md ml-1 font-mono uppercase tracking-wider">${currentUser.role}</span>`;
 
@@ -708,25 +813,14 @@
             const adminBtn = document.getElementById('nav-admin-btn');
             const cartBtn = document.getElementById('nav-cart-btn');
             const locSelector = document.getElementById('nav-location-selector');
-            const loginBtn = document.getElementById('nav-login-btn');
             const logoutBtn = document.getElementById('nav-logout-btn');
 
-            dashBtn.classList.add('hidden');
-            adminBtn.classList.add('hidden');
-            cartBtn.classList.add('hidden');
-            locSelector.classList.add('hidden');
-            loginBtn.classList.add('hidden');
-            logoutBtn.classList.remove('hidden');
+            dashBtn.classList.add('hidden'); adminBtn.classList.add('hidden'); cartBtn.classList.add('hidden');
+            locSelector.classList.add('hidden'); logoutBtn.classList.remove('hidden');
 
-            if (currentUser.role === 'seller') {
-                dashBtn.classList.remove('hidden');
-                userLocation = currentUser.location;
-            } else if (currentUser.role === 'admin') {
-                adminBtn.classList.remove('hidden');
-            } else if (currentUser.role === 'buyer') {
-                cartBtn.classList.remove('hidden');
-                locSelector.classList.remove('hidden');
-            }
+            if (currentUser.role === 'seller') { dashBtn.classList.remove('hidden'); userLocation = currentUser.location; }
+            else if (currentUser.role === 'admin') { adminBtn.classList.remove('hidden'); }
+            else if (currentUser.role === 'buyer') { cartBtn.classList.remove('hidden'); locSelector.classList.remove('hidden'); }
 
             document.getElementById('locSortLabel').innerHTML = `Prioritize artisans closest to <span class="underline font-bold text-amber-800">${userLocation}</span>`;
             renderMarketplace();
@@ -739,68 +833,42 @@
             renderMarketplace();
         }
 
-        function updateCartBadge() {
-            const count = cart.reduce((acc, i) => acc + i.qty, 0);
-            document.getElementById('cartCount').innerText = count;
-        }
+        function updateCartBadge() { document.getElementById('cartCount').innerText = cart.reduce((acc, i) => acc + i.qty, 0); }
 
-        // --- VIEW INTERFACE CONTROLLER ---
         function switchView(viewId) {
             document.querySelectorAll('.app-view').forEach(v => v.classList.add('hidden'));
             document.getElementById(`view-${viewId}`).classList.remove('hidden');
             window.scrollTo(0, 0);
-
             if (viewId === 'home') renderMarketplace();
             if (viewId === 'dashboard') renderDashboard();
             if (viewId === 'admin-console') renderAdminConsole();
             if (viewId === 'cart') renderCart();
         }
 
-        function setCategory(cat) {
-            activeCategory = cat;
-            document.querySelectorAll('.cat-btn').forEach(btn => {
-                btn.className = "cat-btn px-4 py-2 text-xs font-semibold rounded-xl transition duration-200 bg-stone-50 text-stone-600 hover:bg-stone-100";
-            });
-            event.target.className = "cat-btn px-4 py-2 text-xs font-semibold rounded-xl transition duration-200 bg-amber-800 text-white shadow-sm";
-            renderMarketplace();
-        }
+        function toggleLocationSort(checked) { sortByLocation = checked; renderMarketplace(); }
 
-        function toggleLocationSort(checked) {
-            sortByLocation = checked;
-            renderMarketplace();
-        }
-
-        // --- SYSTEM MARKETPLACE GRID RENDER LOOP ---
         function renderMarketplace() {
             const searchQ = document.getElementById('searchInput').value.toLowerCase();
             const grid = document.getElementById('productGrid');
             grid.innerHTML = '';
 
-            let items = products.filter(p => {
-                const matchesSearch = p.title.toLowerCase().includes(searchQ) || p.description.toLowerCase().includes(searchQ);
-                const matchesCat = activeCategory === 'All' || p.category === activeCategory;
-                return matchesSearch && matchesCat;
-            });
+            let items = products.filter(p => (p.title.toLowerCase().includes(searchQ) || p.description.toLowerCase().includes(searchQ)) && (activeCategory === 'All' || p.category === activeCategory));
 
             if (sortByLocation) {
-                items.sort((a, b) => {
-                    if (a.location === userLocation && b.location !== userLocation) return -1;
-                    if (a.location !== userLocation && b.location === userLocation) return 1;
-                    return 0;
-                });
+                items.sort((a, b) => (a.location === userLocation && b.location !== userLocation) ? -1 : (a.location !== userLocation && b.location === userLocation) ? 1 : 0);
             }
 
             items.forEach(p => {
                 const isBuyerOrGuest = !currentUser || currentUser.role === 'buyer';
                 const locBadge = p.location === userLocation && isBuyerOrGuest ? `<span class="absolute top-3 left-3 bg-emerald-600/90 backdrop-blur-xs text-white text-[9px] uppercase tracking-widest font-bold px-2.5 py-1 rounded-md shadow-sm">Near You</span>` : '';
-                const cartAction = isBuyerOrGuest
-                    ? `<button onclick="addToCart('${p.id}')" class="text-xs bg-stone-900 hover:bg-amber-800 text-white px-3.5 py-2 rounded-xl transition font-semibold shadow-xs hover:shadow-md">+ Add</button>`
-                    : '';
+                const cartAction = isBuyerOrGuest ? `<button onclick="addToCart('${p.id}')" class="text-xs bg-stone-900 hover:bg-amber-800 text-white px-3.5 py-2 rounded-xl transition font-semibold shadow-xs hover:shadow-md">+ Add</button>` : '';
+
+                let beautifulCategoryTag = formatCategoryDisplayName(p.category);
 
                 grid.innerHTML += `
           <div class="bg-white rounded-2xl border border-stone-100 overflow-hidden shadow-xs hover:shadow-md transition duration-300 flex flex-col justify-between group">
             <div class="relative overflow-hidden aspect-[4/3] bg-stone-100">
-              <img src="${p.image}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" />
+              <img src="${p.image}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e3a38?w=500'" />
               <span class="absolute top-3 right-3 bg-white/95 backdrop-blur-xs text-stone-800 text-[10px] tracking-wider font-bold px-2.5 py-1 rounded-md shadow-xs">📍 ${p.location}</span>
               ${locBadge}
             </div>
@@ -821,64 +889,36 @@
             });
         }
 
-        // --- GRANULAR PRODUCT DETAILS SHEET ---
         function viewProductDetail(id) {
             activeProductId = id;
             const product = products.find(p => p.id === id);
-            const targetSeller = Object.values(userProfiles).find(u => u.id === product.sellerId) || { name: "Independent Studio", story: "Handmade jewelry entrepreneur partner." };
+            const targetSeller = Object.values(userProfiles).find(u => u.id === product.sellerId) || { name: "Independent Studio", story: "Handmade enterprise partner." };
             const wrapper = document.getElementById('productDetailContent');
 
             let reviewsHTML = '';
             product.reviews.forEach(r => {
-                reviewsHTML += `
-          <div class="bg-stone-50 p-4 rounded-xl border border-stone-100 space-y-1">
-            <div class="flex justify-between font-bold text-stone-800 text-xs">
-              <span>${r.user}</span>
-              <span class="text-amber-500">${"★".repeat(r.rating)}</span>
-            </div>
-            <p class="text-stone-600 text-xs font-light leading-relaxed">${r.comment}</p>
-          </div>`;
+                reviewsHTML += `<div class="bg-stone-50 p-4 rounded-xl border border-stone-100 space-y-1"><div class="flex justify-between font-bold text-stone-800 text-xs"><span>${r.user}</span><span class="text-amber-500">${"★".repeat(r.rating)}</span></div><p class="text-stone-600 text-xs font-light leading-relaxed">${r.comment}</p></div>`;
             });
             if (product.reviews.length === 0) reviewsHTML = `<p class="text-xs italic text-stone-400 bg-stone-50 p-4 rounded-xl text-center">No customer reviews listed for this artwork yet.</p>`;
 
-            const clientForm = currentUser && currentUser.role === 'buyer' ? `
-        <div class="bg-stone-50 p-5 rounded-2xl border border-stone-100 shadow-2xs">
-          <h4 class="text-xs font-bold uppercase tracking-wider text-stone-500 mb-3">Write a Product Review</h4>
-          <form onsubmit="handleSubmitReview(event)" class="space-y-3.5">
-            <div>
-              <label class="block text-[9px] uppercase tracking-widest font-bold text-stone-400 mb-1">Rating Evaluation</label>
-              <select id="revRating" class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2 text-xs outline-none focus:ring-1 focus:ring-amber-500">
-                <option value="5">★ ★ ★ ★ ★ (Excellent Quality)</option>
-                <option value="4">★ ★ ★ ★ ☆ (Very Good)</option>
-                <option value="3">★ ★ ★ ☆ ☆ (Good)</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-[9px] uppercase tracking-widest font-bold text-stone-400 mb-1">Your Review</label>
-              <textarea id="revComment" rows="3" required placeholder="Share your feedback about the design, materials, or shipping experience..." class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2 text-xs outline-none focus:ring-1 focus:ring-amber-500"></textarea>
-            </div>
-            <button type="submit" class="w-full bg-stone-900 hover:bg-stone-800 text-amber-400 font-bold py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Submit Review</button>
-          </form>
-        </div>` : `<p class="text-xs text-stone-400 bg-stone-50 p-4 rounded-xl italic text-center border">Log into your buyer profile to leave verified reviews.</p>`;
+            const clientForm = currentUser && currentUser.role === 'buyer' ? `<div class="bg-stone-50 p-5 rounded-2xl border border-stone-100 shadow-2xs"><h4 class="text-xs font-bold uppercase tracking-wider text-stone-500 mb-3">Write a Product Review</h4><form onsubmit="handleSubmitReview(event)" class="space-y-3.5"><div><label class="block text-[9px] uppercase tracking-widest font-bold text-stone-400 mb-1">Rating Evaluation</label><select id="revRating" class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2 text-xs outline-none focus:ring-1 focus:ring-amber-500"><option value="5">★ ★ ★ ★ ★ (Excellent Quality)</option><option value="4">★ ★ ★ ★ ☆ (Very Good)</option><option value="3">★ ★ ★ ☆ ☆ (Good)</option></select></div><div><label class="block text-[9px] uppercase tracking-widest font-bold text-stone-400 mb-1">Your Review</label><textarea id="revComment" rows="3" required placeholder="Share your feedback..." class="w-full bg-white border border-stone-200 rounded-xl px-3 py-2 text-xs outline-none focus:ring-1 focus:ring-amber-500"></textarea></div><button type="submit" class="w-full bg-stone-900 hover:bg-stone-800 text-amber-400 font-bold py-2.5 rounded-xl text-xs uppercase tracking-wider transition">Submit Review</button></form></div>` : `<p class="text-xs text-stone-400 bg-stone-50 p-4 rounded-xl italic text-center border">Log into your buyer profile to leave verified reviews.</p>`;
+            const purchaseActionBtn = !currentUser || currentUser.role === 'buyer' ? `<button onclick="addToCart('${product.id}')" class="bg-amber-800 hover:bg-amber-900 text-white px-6 py-3 rounded-xl font-semibold transition text-xs uppercase tracking-wider shadow-sm">Add to Shopping Cart</button>` : '';
 
-            const purchaseActionBtn = !currentUser || currentUser.role === 'buyer'
-                ? `<button onclick="addToCart('${product.id}')" class="bg-amber-800 hover:bg-amber-900 text-white px-6 py-3 rounded-xl font-semibold transition text-xs uppercase tracking-wider shadow-sm">Add to Shopping Cart</button>`
-                : '';
+            let beautifulCategoryTag = formatCategoryDisplayName(product.category);
 
             wrapper.innerHTML = `
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           <div class="overflow-hidden rounded-2xl bg-stone-50 border border-stone-100 aspect-[4/3] md:aspect-auto md:max-h-[400px]">
-            <img src="${product.image}" class="w-full h-full object-cover" />
+            <img src="${product.image}" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e3a38?w=500'" />
           </div>
           <div class="flex flex-col justify-between space-y-6">
             <div class="space-y-4">
               <div>
-                <span class="text-[9px] font-bold uppercase tracking-widest bg-amber-50 text-amber-800 border border-amber-200/60 px-3 py-1 rounded-md">${product.category}</span>
+                <span class="text-[9px] font-bold uppercase tracking-widest bg-amber-50 text-amber-800 border border-amber-200/60 px-3 py-1 rounded-md">${beautifulCategoryTag}</span>
                 <h1 class="font-serif text-3xl font-bold text-stone-900 mt-2 tracking-wide leading-tight">${product.title}</h1>
                 <p class="text-xs text-stone-400 mt-1 font-medium flex items-center">📍 Studio Hub Location: <span class="text-stone-700 ml-1 font-bold">${product.location}</span></p>
               </div>
               <p class="text-stone-600 text-sm font-light leading-relaxed">${product.description}</p>
-             
               <div class="bg-stone-50/50 p-4 rounded-xl border border-stone-100 cursor-pointer hover:bg-amber-50/30 transition group" onclick="viewSellerStudioProfile('${product.sellerId}')">
                 <span class="text-[9px] uppercase tracking-widest font-bold text-amber-800 block mb-1">Master Artisan Profile</span>
                 <h4 class="font-serif font-bold text-stone-900 group-hover:text-amber-900 text-sm transition">${targetSeller.name}</h4>
@@ -892,88 +932,31 @@
           </div>
         </div>
         <div class="mt-12 border-t border-stone-100 pt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="md:col-span-2 space-y-4">
-            <h3 class="font-serif font-bold text-lg text-stone-900 tracking-wide">Customer Reviews & Ratings</h3>
-            <div class="space-y-3">${reviewsHTML}</div>
-          </div>
+          <div class="md:col-span-2 space-y-4"><h3 class="font-serif font-bold text-lg text-stone-900 tracking-wide">Customer Reviews & Ratings</h3><div class="space-y-3">${reviewsHTML}</div></div>
           <div>${clientForm}</div>
         </div>`;
-
             switchView('product-detail');
         }
 
-        function handleSubmitReview(e) {
-            e.preventDefault();
-            const rating = Number(document.getElementById('revRating').value);
-            const comment = document.getElementById('revComment').value;
-
-            products = products.map(p => {
-                if (p.id === activeProductId) p.reviews.push({ user: currentUser.name, rating, comment });
-                return p;
-            });
-            saveState();
-            viewProductDetail(activeProductId);
-        }
-
-        function viewSellerStudioProfile(sellerId) {
-            const seller = Object.values(userProfiles).find(u => u.id === sellerId);
-            const section = document.getElementById('view-seller-profile');
-
-            let storeItemsHTML = '';
-            products.filter(p => p.sellerId === seller.id).forEach(p => {
-                storeItemsHTML += `
-          <div class="bg-white border border-stone-100 rounded-2xl p-3 flex flex-col justify-between shadow-2xs group">
-            <div class="overflow-hidden rounded-xl aspect-[4/3] bg-stone-50">
-              <img src="${p.image}" class="w-full h-full object-cover group-hover:scale-102 transition duration-300" />
-            </div>
-            <h4 onclick="viewProductDetail('${p.id}')" class="font-serif font-bold text-sm text-stone-900 mt-3 hover:text-amber-800 cursor-pointer line-clamp-1">${p.title}</h4>
-            <span class="font-mono text-xs font-bold text-amber-950 mt-1 block">৳ ${p.price.toLocaleString()}</span>
-          </div>`;
-            });
-
-            section.innerHTML = `
-        <div class="bg-white border border-stone-100 p-6 sm:p-8 rounded-3xl shadow-xs flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
-          <img src="${seller.avatar}" class="w-20 h-20 rounded-full object-cover ring-4 ring-amber-50 shadow-md flex-shrink-0" />
-          <div class="space-y-2 text-center sm:text-left">
-            <h2 class="font-serif text-2xl font-bold text-stone-900 tracking-wide">${seller.name}</h2>
-            <p class="text-xs text-amber-800 font-semibold bg-amber-50 px-2.5 py-1 rounded-md inline-block">📍 Artisan Hub Location: ${seller.location}, Bangladesh</p>
-            <p class="text-xs text-stone-600 font-light italic leading-relaxed max-w-2xl pt-1">"${seller.story}"</p>
-            <div class="pt-2 flex flex-wrap justify-center sm:justify-start gap-x-4 gap-y-1 font-mono text-[11px] text-stone-400 border-t border-stone-50 mt-2">
-              <span>✉️ Email: ${seller.email}</span> <span>📞 Contact: ${seller.phone}</span>
-            </div>
-          </div>
-        </div>
-        <div class="space-y-4">
-          <h3 class="font-serif font-bold text-xl text-stone-900 tracking-wide">Artisan Collection Showroom</h3>
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">${storeItemsHTML}</div>
-        </div>`;
-            switchView('seller-profile');
-        }
-
-        // --- VIEW 4: SELLER DASHBOARD (DAILY SALES TRACKER) ---
         function renderDashboard() {
             if (currentUser.role !== 'seller') return switchView('home');
-
             document.getElementById('dashGreetings').innerText = `Welcome Back, ${currentUser.name}!`;
-
             const myItems = products.filter(p => p.sellerId === currentUser.id);
             document.getElementById('dashListingCount').innerText = `${myItems.length} Products Online`;
 
             const mySales = salesRegistry.filter(s => s.sellerId === currentUser.id);
-            const totalRev = mySales.reduce((acc, s) => acc + s.totalValue, 0);
-            const totalUnits = mySales.reduce((acc, s) => acc + s.qty, 0);
-
-            document.getElementById('dashSalesValue').innerText = `৳ ${totalRev.toLocaleString()}`;
-            document.getElementById('dashUnitsSold').innerText = `${totalUnits} Units`;
+            document.getElementById('dashSalesValue').innerText = `৳ ${mySales.reduce((acc, s) => acc + s.totalValue, 0).toLocaleString()}`;
+            document.getElementById('dashUnitsSold').innerText = `${mySales.reduce((acc, s) => acc + s.qty, 0)} Units`;
 
             const tbody = document.getElementById('dashInventoryTable');
             tbody.innerHTML = '';
             myItems.forEach(p => {
+                let beautifulCategoryTag = formatCategoryDisplayName(p.category);
                 tbody.innerHTML += `
           <tr class="text-stone-600 font-medium border-b border-stone-50 hover:bg-stone-50/50 transition">
-            <td class="py-3"><img src="${p.image}" class="w-10 h-10 object-cover rounded-xl shadow-2xs border" /></td>
+            <td class="py-3"><img src="${p.image}" class="w-10 h-10 object-cover rounded-xl border" onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e3a38?w=500'" /></td>
             <td class="py-3 font-bold text-stone-900">${p.title}</td>
-            <td class="py-3"><span class="bg-stone-100 text-stone-600 px-2 py-0.5 rounded text-[11px] font-medium">${p.category}</span></td>
+            <td class="py-3"><span class="bg-stone-100 text-stone-700 px-2 py-0.5 rounded text-[11px] font-medium">${beautifulCategoryTag}</span></td>
             <td class="py-3 font-mono font-semibold text-stone-800">৳ ${p.price.toLocaleString()}</td>
           </tr>`;
             });
@@ -984,44 +967,37 @@
             const title = document.getElementById('newProdTitle').value;
             const price = Number(document.getElementById('newProdPrice').value);
             const category = document.getElementById('newProdCat').value;
-            let image = document.getElementById('newProdImg').value || "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=500";
+            let filename = document.getElementById('newProdImg').value || "item.jpg";
             const description = document.getElementById('newProdDesc').value || "No specifications loaded.";
 
             const newAsset = {
                 id: 'p_' + Date.now(),
                 sellerId: currentUser.id,
-                title, price, category, location: currentUser.location, image, description, reviews: []
+                title, price, category, location: currentUser.location,
+                image: `category/${category}/${filename}`,
+                description, reviews: []
             };
 
             products.unshift(newAsset);
             saveState();
+            buildDynamicCategoryUI();
             renderDashboard();
             document.getElementById('addProductForm').reset();
             alert("Product successfully added to your dynamic catalog!");
         }
 
-        // --- NEW VIEW 7: GLOBAL CENTRAL OWNER MASTER ADMIN LOGIC ---
         function renderAdminConsole() {
             if (currentUser.role !== 'admin') return switchView('home');
-
-            const totalRevenue = salesRegistry.reduce((acc, s) => acc + s.totalValue, 0);
-            const totalQty = salesRegistry.reduce((acc, s) => acc + s.qty, 0);
-
-            document.getElementById('adminGlobalRevenue').innerText = `৳ ${totalRevenue.toLocaleString()}`;
-            document.getElementById('adminGlobalQty').innerText = `${totalQty} Units`;
+            document.getElementById('adminGlobalRevenue').innerText = `৳ ${salesRegistry.reduce((acc, s) => acc + s.totalValue, 0).toLocaleString()}`;
+            document.getElementById('adminGlobalQty').innerText = `${salesRegistry.reduce((acc, s) => acc + s.qty, 0)} Units`;
 
             const tbody = document.getElementById('adminSalesLedgerTable');
             tbody.innerHTML = '';
-
-            if (salesRegistry.length === 0) {
-                document.getElementById('adminEmptyMsg').classList.remove('hidden');
-                return;
-            }
+            if (salesRegistry.length === 0) { document.getElementById('adminEmptyMsg').classList.remove('hidden'); return; }
             document.getElementById('adminEmptyMsg').classList.add('hidden');
 
             salesRegistry.forEach(log => {
                 const nodeOwner = Object.values(userProfiles).find(u => u.id === log.sellerId)?.name || "Independent Artisan";
-
                 tbody.innerHTML += `
           <tr class="hover:bg-purple-50/30 transition text-stone-600 font-medium border-b border-stone-100">
             <td class="py-3.5 font-mono text-purple-900 font-bold tracking-wider">${log.id}</td>
@@ -1034,92 +1010,38 @@
             });
         }
 
-        // --- SHOPPING CART MANAGEMENT ---
         function addToCart(productId) {
-            if (!currentUser) {
-                alert("Authentication Required: Please login to an account profile to manage active shopping sessions.");
-                openAuthPortal();
-                return;
-            }
-            if (currentUser.role !== 'buyer') return alert('Access denied. Log into a buyer profile to manipulate active carts.');
-
+            if (!currentUser) { alert("Authentication Required."); openAuthPortal(); return; }
+            if (currentUser.role !== 'buyer') return alert('Access denied.');
             const product = products.find(p => p.id === productId);
             const match = cart.find(c => c.id === productId);
-            if (match) match.qty += 1;
-            else cart.push({ ...product, qty: 1 });
+            if (match) match.qty += 1; else cart.push({ ...product, qty: 1 });
             saveState();
             alert(`${product.title} has been added to your cart.`);
         }
 
         function renderCart() {
             const wrapper = document.getElementById('cartContentWrapper');
-            if (cart.length === 0) {
-                wrapper.innerHTML = `
-          <div class="text-center py-12 space-y-3">
-            <span class="text-4xl inline-block">🛍️</span>
-            <p class="text-stone-400 text-sm font-light">Your shopping cart is currently empty.</p>
-            <button onclick="switchView('home')" class="bg-stone-900 text-amber-400 font-bold uppercase tracking-wider text-[11px] px-5 py-2.5 rounded-xl hover:bg-stone-800 transition shadow-sm">Explore Marketplace</button>
-          </div>`;
-                return;
-            }
-
+            if (cart.length === 0) { wrapper.innerHTML = `<div class="text-center py-12"><p class="text-stone-400 text-sm">Your cart is empty.</p></div>`; return; }
             let subtotal = 0;
             let html = '<div class="space-y-4">';
             cart.forEach(c => {
                 subtotal += (c.price * c.qty);
-                html += `
-          <div class="flex items-center justify-between border-b border-stone-50 pb-3.5 gap-4">
-            <div class="flex items-center space-x-3.5">
-              <img src="${c.image}" class="w-12 h-12 object-cover rounded-xl shadow-2xs border border-stone-100 flex-shrink-0" />
-              <div>
-                <strong class="text-stone-900 text-sm font-semibold tracking-wide block leading-tight">${c.title}</strong>
-                <span class="text-stone-400 font-light text-[11px] block mt-0.5">Artisan Location: ${c.location}</span>
-              </div>
-            </div>
-            <div class="font-mono text-right flex-shrink-0">
-              <span class="text-stone-400 text-xs block">Qty: ${c.qty}</span>
-              <strong class="block text-amber-950 text-sm font-bold">৳ ${(c.price * c.qty).toLocaleString()}</strong>
-            </div>
-          </div>`;
+                html += `<div class="flex items-center justify-between border-b pb-3.5"><div><strong>${c.title}</strong></div><div class="font-mono text-right"><span>Qty: ${c.qty}</span><br><strong>৳ ${(c.price * c.qty).toLocaleString()}</strong></div></div>`;
             });
-
-            html += `
-        <div class="flex justify-between items-center font-bold pt-4 text-stone-900">
-          <span class="text-sm font-semibold text-stone-500 uppercase tracking-wider">Subtotal:</span>
-          <span class="font-mono text-xl text-amber-950">৳ ${subtotal.toLocaleString()}</span>
-        </div>
-        <button onclick="openCheckoutGateway(${subtotal})" class="w-full bg-amber-800 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-widest transition shadow-sm mt-6">
-          Proceed to Checkout
-        </button>
-      </div>`;
+            html += `<div class="flex justify-between items-center font-bold pt-4"><span>Subtotal:</span><span class="font-mono text-xl">৳ ${subtotal.toLocaleString()}</span></div><button onclick="openCheckoutGateway(${subtotal})" class="w-full bg-amber-800 text-white font-bold py-3 rounded-xl text-xs uppercase tracking-widest mt-6">Proceed to Checkout</button></div>`;
             wrapper.innerHTML = html;
         }
 
-        function openCheckoutGateway(total) {
-            document.getElementById('checkoutSummary').innerText = `Total Amount Due: ৳ ${total.toLocaleString()}`;
-            switchView('checkout');
-        }
+        function openCheckoutGateway(total) { document.getElementById('checkoutSummary').innerText = `Total Amount Due: ৳ ${total.toLocaleString()}`; switchView('checkout'); }
 
         function handleCheckout(event) {
             event.preventDefault();
-
             cart.forEach(item => {
-                const transactionRecord = {
-                    id: 'TX-' + Math.floor(1000 + Math.random() * 9000),
-                    productId: item.id,
-                    productTitle: item.title,
-                    sellerId: item.sellerId,
-                    qty: item.qty,
-                    totalValue: (item.price * item.qty),
-                    location: item.location
-                };
-                salesRegistry.unshift(transactionRecord);
+                salesRegistry.unshift({ id: 'TX-' + Math.floor(1000 + Math.random() * 9000), productId: item.id, productTitle: item.title, sellerId: item.sellerId, qty: item.qty, totalValue: (item.price * item.qty), location: item.location });
             });
-
-            alert("🎉 Order placed successfully! Thank you for supporting small handmade jewelry entrepreneurs.");
-            cart = [];
-            saveState();
-            switchView('home');
+            alert("🎉 Order placed successfully!");
+            cart = []; saveState(); switchView('home');
         }
     </script>
 </body>
